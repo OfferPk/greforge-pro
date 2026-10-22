@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c15"/>
+      <stop offset="100%" stop-color="#04060b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#141f38"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Top Navbar -->
+  <rect x="24" y="20" width="1152" height="70" rx="10" fill="url(#cardGrad)" stroke="#24324f" stroke-width="1.5"/>
+  <rect x="44" y="33" width="44" height="44" rx="8" fill="url(#accentGrad)"/>
+  <text x="66" y="62" font-family="Inter, sans-serif" font-weight="800" font-size="22" fill="#ffffff" text-anchor="middle">G</text>
+  <text x="104" y="52" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#f8fafc">GREForge Pro <tspan fill="#06b6d4" font-size="12">v1.0.0</tspan></text>
+  <text x="104" y="70" font-family="Inter, sans-serif" font-size="12" fill="#94a3b8">Zero-Trust Generic Routing Encapsulation (RFC 2784 / 2890) &amp; DMVPN Studio</text>
+
+  <!-- Presets -->
+  <rect x="24" y="105" width="370" height="34" rx="17" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d4" stroke-width="1.2"/>
+  <text x="44" y="127" font-family="Inter, sans-serif" font-weight="600" font-size="12" fill="#06b6d4">Cisco Enterprise DMVPN Phase 3 (mGRE + IPsec + BFD)</text>
+
+  <rect x="406" y="105" width="330" height="34" rx="17" fill="#0f172a" stroke="#24324f" stroke-width="1"/>
+  <text x="424" y="127" font-family="Inter, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">Cloudflare Magic Transit (RFC 8086 GRE-in-UDP)</text>
+
+  <rect x="748" y="105" width="280" height="34" rx="17" fill="#0f172a" stroke="#24324f" stroke-width="1"/>
+  <text x="766" y="127" font-family="Inter, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">Vulnerable Cleartext Insecure GRE</text>
+
+  <!-- Grid Left: Dissector Card -->
+  <rect x="24" y="155" width="564" height="620" rx="12" fill="url(#cardGrad)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="48" y="190" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="#f8fafc">RFC 2784 / RFC 2890 GRE &amp; RFC 8086 Dissector</text>
+  <rect x="460" y="174" width="104" height="22" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="512" y="189" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#34d399" text-anchor="middle">VALID RFC 2890</text>
+
+  <!-- Inputs Mockup -->
+  <rect x="48" y="215" width="250" height="40" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="60" y="240" font-family="JetBrains Mono, monospace" font-size="12" fill="#f8fafc">Key: 10001 (0x00002711)</text>
+
+  <rect x="314" y="215" width="250" height="40" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="326" y="240" font-family="JetBrains Mono, monospace" font-size="12" fill="#f8fafc">Protocol: 0x0800 (IPv4)</text>
+
+  <!-- Wireframe Box -->
+  <rect x="48" y="275" width="516" height="110" rx="8" fill="#000000" stroke="#24324f"/>
+  <text x="64" y="300" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#06b6d4">RAW GRE (PROTOCOL 47) WIREFRAME</text>
+  <text x="64" y="326" font-family="JetBrains Mono, monospace" font-size="12" fill="#67e8f9">20 00 08 00 00 00 27 11 43 55 53 54 4F 4D 45 52</text>
+  <text x="64" y="348" font-family="JetBrains Mono, monospace" font-size="12" fill="#67e8f9">2D 4F 56 45 52 4C 41 59 2D 49 50 2D 50 41 59 4C</text>
+  <text x="64" y="370" font-family="JetBrains Mono, monospace" font-size="12" fill="#67e8f9">4F 41 44 ... (Total 35 Bytes)</text>
+
+  <!-- Metrics Grid -->
+  <rect x="48" y="405" width="118" height="60" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="107" y="433" font-family="JetBrains Mono, monospace" font-weight="700" font-size="16" fill="#06b6d4" text-anchor="middle">8 B</text>
+  <text x="107" y="451" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">GRE Header</text>
+
+  <rect x="180" y="405" width="118" height="60" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="239" y="433" font-family="JetBrains Mono, monospace" font-weight="700" font-size="16" fill="#06b6d4" text-anchor="middle">64 B</text>
+  <text x="239" y="451" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Total Overhead</text>
+
+  <rect x="312" y="405" width="118" height="60" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="371" y="433" font-family="JetBrains Mono, monospace" font-weight="700" font-size="16" fill="#06b6d4" text-anchor="middle">1564 B</text>
+  <text x="371" y="451" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Req Underlay</text>
+
+  <rect x="446" y="405" width="118" height="60" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="505" y="433" font-family="JetBrains Mono, monospace" font-weight="700" font-size="16" fill="#06b6d4" text-anchor="middle">1360 B</text>
+  <text x="505" y="451" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Safe Clamped MSS</text>
+
+  <!-- Failover & Status -->
+  <rect x="48" y="485" width="516" height="80" rx="8" fill="#1a253c" stroke="#24324f"/>
+  <text x="64" y="512" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#f8fafc">BFD Hardware Liveness Tracking</text>
+  <text x="64" y="534" font-family="Inter, sans-serif" font-size="11" fill="#94a3b8">Session Interval: 300ms x 3 Multiplier → Sub-Second Failover (0.9s)</text>
+  <text x="64" y="552" font-family="Inter, sans-serif" font-size="11" fill="#34d399">✓ 30-Second Keepalive Blackhole Completely Eliminated</text>
+
+  <!-- Grid Right: Auditor & Synthesizer -->
+  <rect x="612" y="155" width="564" height="300" rx="12" fill="url(#cardGrad)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="636" y="190" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="#f8fafc">10-Point Zero-Trust GRE Security Auditor</text>
+  <rect x="1048" y="174" width="104" height="22" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="1100" y="189" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#34d399" text-anchor="middle">GRADE A+ (100%)</text>
+
+  <!-- Audit Items -->
+  <rect x="636" y="210" width="516" height="40" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="650" y="235" font-family="Inter, sans-serif" font-size="12" fill="#f8fafc">IPsec ESP Wire-Speed Encryption over Public WAN</text>
+  <rect x="1090" y="220" width="50" height="20" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="1115" y="234" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">PASS</text>
+
+  <rect x="636" y="260" width="516" height="40" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="650" y="285" font-family="Inter, sans-serif" font-size="12" fill="#f8fafc">Underlay MTU Headroom (9100B) &amp; MSS Clamping (1360B)</text>
+  <rect x="1090" y="270" width="50" height="20" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="1115" y="284" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">PASS</text>
+
+  <rect x="636" y="310" width="516" height="40" rx="6" fill="#1a253c" stroke="#24324f"/>
+  <text x="650" y="335" font-family="Inter, sans-serif" font-size="12" fill="#f8fafc">Recursive Routing Loop Filter (TUNRECURSEREG Prevention)</text>
+  <rect x="1090" y="320" width="50" height="20" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="1115" y="334" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">PASS</text>
+
+  <!-- Synthesizer Card -->
+  <rect x="612" y="475" width="564" height="300" rx="12" fill="url(#cardGrad)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="636" y="510" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="#f8fafc">Multi-Platform Configuration Synthesizer</text>
+
+  <!-- Synthesizer Code Block -->
+  <rect x="636" y="530" width="516" height="220" rx="8" fill="#000000" stroke="#24324f"/>
+  <text x="652" y="555" font-family="JetBrains Mono, monospace" font-size="11" fill="#94a3b8">! Cisco IOS-XE Enterprise DMVPN Phase 3 (mGRE + IPsec)</text>
+  <text x="652" y="575" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">interface Tunnel1</text>
+  <text x="652" y="595" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">  tunnel mode gre multipoint</text>
+  <text x="652" y="615" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">  tunnel key 10001</text>
+  <text x="652" y="635" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">  tunnel protection ipsec profile IPSEC_PROF_GRE</text>
+  <text x="652" y="655" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">  ip tcp adjust-mss 1360</text>
+  <text x="652" y="675" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1">  bfd interval 300 min_rx 300 multiplier 3</text>
+</svg>

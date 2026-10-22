@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" width="1100" height="500">
+  <defs>
+    <linearGradient id="bgGre" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c15"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="boxGre" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17223b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="500" fill="url(#bgGre)"/>
+
+  <!-- Title -->
+  <text x="550" y="45" font-family="Inter, sans-serif" font-weight="700" font-size="20" fill="#f8fafc" text-anchor="middle">Zero-Trust Generic Routing Encapsulation (RFC 2784 / RFC 2890) &amp; DMVPN Overlay</text>
+  <text x="550" y="70" font-family="Inter, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Encapsulation: Outer IP + IPsec ESP + GRE Header (Key: 10001) + Inner Customer IP</text>
+
+  <!-- Step 1: Branch Spoke LAN -->
+  <rect x="50" y="140" width="140" height="200" rx="8" fill="url(#boxGre)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="120" y="175" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#06b6d4" text-anchor="middle">Branch Spoke</text>
+  <text x="120" y="205" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">LAN Client</text>
+  <text x="120" y="230" font-family="JetBrains Mono, monospace" font-size="11" fill="#94a3b8" text-anchor="middle">192.168.10.50</text>
+  <rect x="65" y="260" width="110" height="30" rx="4" fill="#1a253c"/>
+  <text x="120" y="280" font-family="Inter, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">Payload MTU: 1500B</text>
+
+  <!-- Arrow -->
+  <path d="M 190 240 L 250 240" stroke="#06b6d4" stroke-width="2" fill="none"/>
+  <text x="220" y="230" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Native IP</text>
+
+  <!-- Step 2: Spoke Edge Router (GRE Encapsulation) -->
+  <rect x="250" y="120" width="180" height="240" rx="8" fill="url(#boxGre)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="340" y="155" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#06b6d4" text-anchor="middle">Spoke Router</text>
+  <text x="340" y="185" font-family="Inter, sans-serif" font-size="11" fill="#f8fafc" text-anchor="middle">Pushes GRE + IPsec</text>
+  <text x="340" y="215" font-family="JetBrains Mono, monospace" font-size="11" fill="#34d399" text-anchor="middle">Key = 10001 (K=1)</text>
+  <text x="340" y="240" font-family="JetBrains Mono, monospace" font-size="11" fill="#34d399" text-anchor="middle">IPsec ESP GCM-256</text>
+  <text x="340" y="270" font-family="JetBrains Mono, monospace" font-size="11" fill="#38bdf8" text-anchor="middle">MSS Clamp: 1360B</text>
+  <rect x="270" y="295" width="140" height="30" rx="4" fill="rgba(6, 182, 212, 0.2)"/>
+  <text x="340" y="315" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">+64B–80B Overhead</text>
+
+  <!-- Arrow -->
+  <path d="M 430 240 L 490 240" stroke="#06b6d4" stroke-width="2" fill="none"/>
+  <text x="460" y="230" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">GRE+ESP</text>
+
+  <!-- Step 3: Public / Transit Underlay Backbone -->
+  <rect x="490" y="130" width="200" height="220" rx="8" fill="url(#boxGre)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="590" y="165" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#f8fafc" text-anchor="middle">Transit Underlay</text>
+  <rect x="510" y="180" width="160" height="60" rx="6" fill="#1a253c" stroke="#3b82f6"/>
+  <text x="590" y="205" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">Physical Underlay MTU</text>
+  <text x="590" y="225" font-family="JetBrains Mono, monospace" font-size="11" fill="#f8fafc" text-anchor="middle">9100B Jumbo Frames</text>
+  <text x="590" y="265" font-family="Inter, sans-serif" font-size="11" fill="#10b981" text-anchor="middle">BFD Session: 900ms</text>
+  <text x="590" y="285" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Sub-Second Failover Active</text>
+  <text x="590" y="315" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">No PMTU Drops</text>
+
+  <!-- Arrow -->
+  <path d="M 690 240 L 750 240" stroke="#06b6d4" stroke-width="2" fill="none"/>
+
+  <!-- Step 4: Central Hub Router (Decapsulation) -->
+  <rect x="750" y="120" width="180" height="240" rx="8" fill="url(#boxGre)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="840" y="155" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#34d399" text-anchor="middle">Central Hub Router</text>
+  <text x="840" y="185" font-family="Inter, sans-serif" font-size="11" fill="#f8fafc" text-anchor="middle">Decapsulates GRE+IPsec</text>
+  <text x="840" y="215" font-family="JetBrains Mono, monospace" font-size="11" fill="#34d399" text-anchor="middle">Validates Key 10001</text>
+  <text x="840" y="240" font-family="JetBrains Mono, monospace" font-size="11" fill="#34d399" text-anchor="middle">Strict Ingress uRPF</text>
+  <text x="840" y="270" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">Recursive Filter Active</text>
+  <rect x="770" y="295" width="140" height="30" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+  <text x="840" y="315" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">Forwards Clean IP</text>
+
+  <!-- Arrow -->
+  <path d="M 930 240 L 980 240" stroke="#10b981" stroke-width="2" fill="none"/>
+
+  <!-- Step 5: Data Center Destination -->
+  <rect x="980" y="140" width="90" height="200" rx="8" fill="url(#boxGre)" stroke="#24324f" stroke-width="1.5"/>
+  <text x="1025" y="180" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#06b6d4" text-anchor="middle">Data Center</text>
+  <text x="1025" y="215" font-family="JetBrains Mono, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">Server</text>
+  <text x="1025" y="240" font-family="JetBrains Mono, monospace" font-size="11" fill="#94a3b8" text-anchor="middle">10.100.1.5</text>
+
+  <!-- Bottom Legend -->
+  <rect x="50" y="390" width="1020" height="65" rx="8" fill="#0f172a" stroke="#24324f"/>
+  <text x="70" y="415" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#f8fafc">Zero-Trust Rules:</text>
+  <text x="70" y="438" font-family="Inter, sans-serif" font-size="11" fill="#94a3b8">1. Enforce IPsec ESP over Public WAN  |  2. Underlay MTU &gt;= 1564B or MSS &lt;= 1360B  |  3. Recursive Filter (RM_PREVENT_RECURSION)  |  4. Sub-Second BFD Failover</text>
+</svg>
